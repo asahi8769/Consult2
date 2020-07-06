@@ -1,0 +1,1182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Consult2</class>
+ <widget class="QMainWindow" name="Consult2">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1071</width>
+    <height>616</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Consult2</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="0" column="0">
+     <widget class="QTabWidget" name="tabWidget">
+      <property name="currentIndex">
+       <number>2</number>
+      </property>
+      <widget class="QWidget" name="tab_1">
+       <attribute name="title">
+        <string>General</string>
+       </attribute>
+       <layout class="QGridLayout" name="gridLayout_5">
+        <item row="0" column="0">
+         <widget class="QGroupBox" name="Consult">
+          <property name="title">
+           <string>품의정보</string>
+          </property>
+          <layout class="QGridLayout" name="gridLayout_3">
+           <item row="6" column="0" colspan="2">
+            <widget class="QPushButton" name="consult_folderBtn">
+             <property name="text">
+              <string>생성폴더열기</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="1">
+            <widget class="QDateEdit" name="end_m">
+             <property name="contextMenuPolicy">
+              <enum>Qt::NoContextMenu</enum>
+             </property>
+             <property name="maximumDate">
+              <date>
+               <year>2030</year>
+               <month>12</month>
+               <day>31</day>
+              </date>
+             </property>
+             <property name="minimumDate">
+              <date>
+               <year>2010</year>
+               <month>1</month>
+               <day>1</day>
+              </date>
+             </property>
+             <property name="currentSection">
+              <enum>QDateTimeEdit::MonthSection</enum>
+             </property>
+             <property name="displayFormat">
+              <string>yyyy-MM</string>
+             </property>
+             <property name="currentSectionIndex">
+              <number>1</number>
+             </property>
+             <property name="date">
+              <date>
+               <year>2020</year>
+               <month>1</month>
+               <day>1</day>
+              </date>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="0">
+            <widget class="QCheckBox" name="year_checkBX_1">
+             <property name="text">
+              <string>연도별</string>
+             </property>
+            </widget>
+           </item>
+           <item row="5" column="0" colspan="2">
+            <widget class="QPushButton" name="email_Btn">
+             <property name="text">
+              <string>메일보내기</string>
+             </property>
+            </widget>
+           </item>
+           <item row="7" column="0" colspan="2">
+            <widget class="QPushButton" name="file_Btn">
+             <property name="text">
+              <string>생성파일열기</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="0">
+            <widget class="QDateEdit" name="start_m">
+             <property name="maximumDate">
+              <date>
+               <year>2030</year>
+               <month>12</month>
+               <day>31</day>
+              </date>
+             </property>
+             <property name="minimumDate">
+              <date>
+               <year>2010</year>
+               <month>1</month>
+               <day>1</day>
+              </date>
+             </property>
+             <property name="currentSection">
+              <enum>QDateTimeEdit::YearSection</enum>
+             </property>
+             <property name="displayFormat">
+              <string>yyyy-MM</string>
+             </property>
+             <property name="date">
+              <date>
+               <year>2019</year>
+               <month>1</month>
+               <day>1</day>
+              </date>
+             </property>
+            </widget>
+           </item>
+           <item row="4" column="0" colspan="2">
+            <widget class="QPushButton" name="consult_confirmBtn">
+             <property name="text">
+              <string>생성</string>
+             </property>
+            </widget>
+           </item>
+           <item row="8" column="0" colspan="2">
+            <widget class="QPushButton" name="sourceBtn">
+             <property name="text">
+              <string>소스폴더열기</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item row="0" column="1" rowspan="3">
+         <widget class="QLabel" name="image">
+          <property name="minimumSize">
+           <size>
+            <width>840</width>
+            <height>480</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>1000</width>
+            <height>1000</height>
+           </size>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background-color: rgb(255, 255, 255);</string>
+          </property>
+          <property name="frameShape">
+           <enum>QFrame::Box</enum>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="scaledContents">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="0">
+         <widget class="QGroupBox" name="Objection">
+          <property name="title">
+           <string>이의제기</string>
+          </property>
+          <layout class="QGridLayout" name="gridLayout_4">
+           <item row="2" column="0" colspan="2">
+            <widget class="QPushButton" name="excute_BTN_1">
+             <property name="text">
+              <string>실행</string>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="0" colspan="2">
+            <widget class="QPushButton" name="obj_folderBtn">
+             <property name="text">
+              <string>폴더열기</string>
+             </property>
+            </widget>
+           </item>
+           <item row="5" column="0" colspan="2">
+            <widget class="QPushButton" name="GSCM_BTN">
+             <property name="text">
+              <string>GSCM 열기</string>
+             </property>
+            </widget>
+           </item>
+           <item row="4" column="0" colspan="2">
+            <widget class="QPushButton" name="obj_fileBtn">
+             <property name="text">
+              <string>자료열기</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item row="2" column="0">
+         <widget class="QGroupBox" name="DBgen">
+          <property name="title">
+           <string>DB생성</string>
+          </property>
+          <layout class="QGridLayout" name="gridLayout_2">
+           <item row="0" column="0">
+            <widget class="QCheckBox" name="year_checkBX_2">
+             <property name="text">
+              <string>연도별</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="0" colspan="2">
+            <widget class="QPushButton" name="DB_CRT_BTN">
+             <property name="text">
+              <string>생성</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="0" colspan="2">
+            <widget class="QDateEdit" name="DB_start_m">
+             <property name="contextMenuPolicy">
+              <enum>Qt::PreventContextMenu</enum>
+             </property>
+             <property name="dateTime">
+              <datetime>
+               <hour>0</hour>
+               <minute>0</minute>
+               <second>0</second>
+               <year>2020</year>
+               <month>1</month>
+               <day>1</day>
+              </datetime>
+             </property>
+             <property name="maximumDate">
+              <date>
+               <year>2030</year>
+               <month>12</month>
+               <day>31</day>
+              </date>
+             </property>
+             <property name="minimumDate">
+              <date>
+               <year>2010</year>
+               <month>1</month>
+               <day>1</day>
+              </date>
+             </property>
+             <property name="displayFormat">
+              <string>yyyy-MM</string>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="0" colspan="2">
+            <widget class="QPushButton" name="DB_OPN_BTN">
+             <property name="text">
+              <string>DB열기</string>
+             </property>
+            </widget>
+           </item>
+           <item row="4" column="0" colspan="2">
+            <widget class="QPushButton" name="upload_BTN_2">
+             <property name="text">
+              <string>업로드폴더열기</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="tab_2">
+       <attribute name="title">
+        <string>Int BR</string>
+       </attribute>
+       <layout class="QGridLayout" name="gridLayout_8">
+        <item row="0" column="0">
+         <widget class="QGroupBox" name="IntBR">
+          <property name="title">
+           <string>통합분담율</string>
+          </property>
+          <layout class="QGridLayout" name="gridLayout_6">
+           <item row="3" column="2">
+            <widget class="QLineEdit" name="lineEdit_exc"/>
+           </item>
+           <item row="0" column="0" colspan="3">
+            <widget class="QComboBox" name="comboBox">
+             <item>
+              <property name="text">
+               <string>HMMA</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>KMMG</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>KMS</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>HMMC</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>HMMR</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>HMB</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>KMM</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>HAOS</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>HMI</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>KMI</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>CHMC</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>YOUNGSAN</string>
+              </property>
+             </item>
+            </widget>
+           </item>
+           <item row="1" column="2">
+            <widget class="QDateEdit" name="end_m_2">
+             <property name="contextMenuPolicy">
+              <enum>Qt::NoContextMenu</enum>
+             </property>
+             <property name="maximumDate">
+              <date>
+               <year>2030</year>
+               <month>12</month>
+               <day>31</day>
+              </date>
+             </property>
+             <property name="minimumDate">
+              <date>
+               <year>2010</year>
+               <month>1</month>
+               <day>1</day>
+              </date>
+             </property>
+             <property name="currentSection">
+              <enum>QDateTimeEdit::MonthSection</enum>
+             </property>
+             <property name="displayFormat">
+              <string>yyyy-MM</string>
+             </property>
+             <property name="currentSectionIndex">
+              <number>1</number>
+             </property>
+             <property name="date">
+              <date>
+               <year>2020</year>
+               <month>1</month>
+               <day>1</day>
+              </date>
+             </property>
+            </widget>
+           </item>
+           <item row="6" column="0" colspan="3">
+            <widget class="QPushButton" name="test_btn">
+             <property name="text">
+              <string>테스트</string>
+             </property>
+            </widget>
+           </item>
+           <item row="8" column="0" colspan="3">
+            <widget class="QPushButton" name="br_filebtn">
+             <property name="text">
+              <string>생성파일열기</string>
+             </property>
+            </widget>
+           </item>
+           <item row="7" column="0" colspan="3">
+            <widget class="QPushButton" name="br_foldbtn">
+             <property name="text">
+              <string>생성폴더열기</string>
+             </property>
+            </widget>
+           </item>
+           <item row="5" column="0" colspan="3">
+            <widget class="QPushButton" name="calculate_btn">
+             <property name="text">
+              <string>계산</string>
+             </property>
+            </widget>
+           </item>
+           <item row="9" column="0" colspan="3">
+            <widget class="QPushButton" name="br_emailbtn">
+             <property name="text">
+              <string>메일보내기</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="2">
+            <widget class="QLineEdit" name="lineEdit_gen"/>
+           </item>
+           <item row="2" column="0">
+            <widget class="QLabel" name="label_gen">
+             <property name="text">
+              <string>일반분담율</string>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="0">
+            <widget class="QLabel" name="label_exc">
+             <property name="text">
+              <string>교류분담율</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="0" colspan="2">
+            <widget class="QDateEdit" name="start_m_2">
+             <property name="maximumDate">
+              <date>
+               <year>2030</year>
+               <month>12</month>
+               <day>31</day>
+              </date>
+             </property>
+             <property name="minimumDate">
+              <date>
+               <year>2010</year>
+               <month>1</month>
+               <day>1</day>
+              </date>
+             </property>
+             <property name="currentSection">
+              <enum>QDateTimeEdit::YearSection</enum>
+             </property>
+             <property name="displayFormat">
+              <string>yyyy-MM</string>
+             </property>
+             <property name="date">
+              <date>
+               <year>2019</year>
+               <month>1</month>
+               <day>1</day>
+              </date>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item row="1" column="0">
+         <widget class="QGroupBox" name="IntBR_raw">
+          <property name="title">
+           <string>로우데이터 생성</string>
+          </property>
+          <layout class="QGridLayout" name="gridLayout_9">
+           <item row="2" column="1">
+            <widget class="QComboBox" name="comboBox_gen_exc">
+             <item>
+              <property name="text">
+               <string>전체</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>일반</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>교류</string>
+              </property>
+             </item>
+            </widget>
+           </item>
+           <item row="1" column="1">
+            <widget class="QDateEdit" name="end_m_3">
+             <property name="contextMenuPolicy">
+              <enum>Qt::NoContextMenu</enum>
+             </property>
+             <property name="maximumDate">
+              <date>
+               <year>2030</year>
+               <month>12</month>
+               <day>31</day>
+              </date>
+             </property>
+             <property name="minimumDate">
+              <date>
+               <year>2010</year>
+               <month>1</month>
+               <day>1</day>
+              </date>
+             </property>
+             <property name="currentSection">
+              <enum>QDateTimeEdit::MonthSection</enum>
+             </property>
+             <property name="displayFormat">
+              <string>yyyy-MM</string>
+             </property>
+             <property name="currentSectionIndex">
+              <number>1</number>
+             </property>
+             <property name="date">
+              <date>
+               <year>2020</year>
+               <month>1</month>
+               <day>1</day>
+              </date>
+             </property>
+            </widget>
+           </item>
+           <item row="6" column="0" colspan="2">
+            <widget class="QPushButton" name="br_rawbtn">
+             <property name="text">
+              <string>생성</string>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="1">
+            <widget class="QComboBox" name="comboBox_cc">
+             <item>
+              <property name="text">
+               <string>전체</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>켐페인제외</string>
+              </property>
+             </item>
+            </widget>
+           </item>
+           <item row="8" column="0" colspan="2">
+            <widget class="QPushButton" name="br_rawfoldbtn">
+             <property name="text">
+              <string>생성폴더열기</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="0">
+            <widget class="QDateEdit" name="start_m_3">
+             <property name="maximumDate">
+              <date>
+               <year>2030</year>
+               <month>12</month>
+               <day>31</day>
+              </date>
+             </property>
+             <property name="minimumDate">
+              <date>
+               <year>2010</year>
+               <month>1</month>
+               <day>1</day>
+              </date>
+             </property>
+             <property name="currentSection">
+              <enum>QDateTimeEdit::YearSection</enum>
+             </property>
+             <property name="displayFormat">
+              <string>yyyy-MM</string>
+             </property>
+             <property name="date">
+              <date>
+               <year>2019</year>
+               <month>1</month>
+               <day>1</day>
+              </date>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="0">
+            <widget class="QLabel" name="label_exc_2">
+             <property name="text">
+              <string>캠페인</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="0" colspan="2">
+            <widget class="QComboBox" name="comboBox_2">
+             <item>
+              <property name="text">
+               <string>HMMA</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>KMMG</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>KMS</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>HMMC</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>HMMR</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>HMB</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>KMM</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>HAOS</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>HMI</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>KMI</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>CHMC</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>YOUNGSAN</string>
+              </property>
+             </item>
+            </widget>
+           </item>
+           <item row="4" column="0">
+            <widget class="QLabel" name="label_gen_3">
+             <property name="text">
+              <string>통분/개별</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="0">
+            <widget class="QLabel" name="label_gen_exc">
+             <property name="text">
+              <string>일반/교류</string>
+             </property>
+            </widget>
+           </item>
+           <item row="4" column="1">
+            <widget class="QComboBox" name="comboBox_int_spe">
+             <item>
+              <property name="text">
+               <string>전체</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>통분</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>개별</string>
+              </property>
+             </item>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item row="0" column="1" rowspan="2">
+         <widget class="QLabel" name="image_2">
+          <property name="minimumSize">
+           <size>
+            <width>840</width>
+            <height>480</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>1000</width>
+            <height>1000</height>
+           </size>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background-color: rgb(255, 255, 255);</string>
+          </property>
+          <property name="frameShape">
+           <enum>QFrame::Box</enum>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="scaledContents">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="tab_4">
+       <attribute name="title">
+        <string>Search</string>
+       </attribute>
+       <layout class="QFormLayout" name="formLayout_2">
+        <item row="0" column="0">
+         <widget class="QGroupBox" name="search">
+          <property name="title">
+           <string>쿼리</string>
+          </property>
+          <layout class="QGridLayout" name="gridLayout_10">
+           <item row="4" column="2">
+            <widget class="QLineEdit" name="vendor_name"/>
+           </item>
+           <item row="1" column="2">
+            <widget class="QDateEdit" name="start_m_4">
+             <property name="acceptDrops">
+              <bool>false</bool>
+             </property>
+             <property name="inputMethodHints">
+              <set>Qt::ImhDate|Qt::ImhPreferNumbers</set>
+             </property>
+             <property name="wrapping">
+              <bool>false</bool>
+             </property>
+             <property name="accelerated">
+              <bool>true</bool>
+             </property>
+             <property name="maximumDate">
+              <date>
+               <year>2030</year>
+               <month>12</month>
+               <day>31</day>
+              </date>
+             </property>
+             <property name="minimumDate">
+              <date>
+               <year>2010</year>
+               <month>1</month>
+               <day>1</day>
+              </date>
+             </property>
+             <property name="currentSection">
+              <enum>QDateTimeEdit::YearSection</enum>
+             </property>
+             <property name="displayFormat">
+              <string>yyyy-MM</string>
+             </property>
+             <property name="date">
+              <date>
+               <year>2019</year>
+               <month>1</month>
+               <day>1</day>
+              </date>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="0">
+            <widget class="QLabel" name="label_gen_exc_2">
+             <property name="text">
+              <string>RO-NO</string>
+             </property>
+            </widget>
+           </item>
+           <item row="7" column="0">
+            <widget class="QLabel" name="label_exc_7">
+             <property name="text">
+              <string>캠페인</string>
+             </property>
+            </widget>
+           </item>
+           <item row="10" column="2">
+            <widget class="QComboBox" name="comboBox_gen_exc_2">
+             <item>
+              <property name="text">
+               <string>전체</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>일반</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>교류</string>
+              </property>
+             </item>
+            </widget>
+           </item>
+           <item row="11" column="0" colspan="3">
+            <widget class="Line" name="line_2">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+            </widget>
+           </item>
+           <item row="5" column="2">
+            <widget class="QLineEdit" name="part_num"/>
+           </item>
+           <item row="0" column="0" colspan="3">
+            <widget class="QComboBox" name="comboBox_3">
+             <item>
+              <property name="text">
+               <string>HMMA</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>KMMG</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>KMS</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>HMMC</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>HMMR</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>HMB</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>KMM</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>HAOS</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>HMI</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>KMI</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>CHMC</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>YOUNGSAN</string>
+              </property>
+             </item>
+            </widget>
+           </item>
+           <item row="8" column="2">
+            <widget class="QComboBox" name="comboBox_int_spe_2">
+             <item>
+              <property name="text">
+               <string>전체</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>통분</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>개별</string>
+              </property>
+             </item>
+            </widget>
+           </item>
+           <item row="12" column="0" rowspan="3">
+            <widget class="QSlider" name="verticalSlider">
+             <property name="minimum">
+              <number>2000</number>
+             </property>
+             <property name="maximum">
+              <number>10000</number>
+             </property>
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+             <property name="invertedControls">
+              <bool>false</bool>
+             </property>
+             <property name="tickPosition">
+              <enum>QSlider::TicksBelow</enum>
+             </property>
+             <property name="tickInterval">
+              <number>1000</number>
+             </property>
+            </widget>
+           </item>
+           <item row="16" column="0" colspan="3">
+            <widget class="QProgressBar" name="progressBar">
+             <property name="value">
+              <number>24</number>
+             </property>
+            </widget>
+           </item>
+           <item row="8" column="0">
+            <widget class="QLabel" name="label_gen_6">
+             <property name="text">
+              <string>통분/개별</string>
+             </property>
+            </widget>
+           </item>
+           <item row="10" column="0">
+            <widget class="QLabel" name="label_gen_exc_15">
+             <property name="text">
+              <string>일반/교류</string>
+             </property>
+            </widget>
+           </item>
+           <item row="14" column="2">
+            <widget class="QPushButton" name="pushButton">
+             <property name="text">
+              <string>열기</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="0">
+            <widget class="QLabel" name="label_gen_exc_5">
+             <property name="text">
+              <string>FROM</string>
+             </property>
+            </widget>
+           </item>
+           <item row="13" column="2">
+            <widget class="QPushButton" name="pushButton_2">
+             <property name="text">
+              <string>생성</string>
+             </property>
+            </widget>
+           </item>
+           <item row="7" column="2">
+            <widget class="QComboBox" name="comboBox_cc_2">
+             <item>
+              <property name="text">
+               <string>전체</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>켐페인제외</string>
+              </property>
+             </item>
+            </widget>
+           </item>
+           <item row="4" column="0">
+            <widget class="QLabel" name="label_exc_3">
+             <property name="text">
+              <string>업체명</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="0">
+            <widget class="QLabel" name="label_gen_exc_4">
+             <property name="text">
+              <string>TO</string>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="2">
+            <widget class="QLineEdit" name="ro_no"/>
+           </item>
+           <item row="6" column="0" colspan="3">
+            <widget class="Line" name="line">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="2">
+            <widget class="QDateEdit" name="end_m_4">
+             <property name="contextMenuPolicy">
+              <enum>Qt::NoContextMenu</enum>
+             </property>
+             <property name="maximumDate">
+              <date>
+               <year>2030</year>
+               <month>12</month>
+               <day>31</day>
+              </date>
+             </property>
+             <property name="minimumDate">
+              <date>
+               <year>2010</year>
+               <month>1</month>
+               <day>1</day>
+              </date>
+             </property>
+             <property name="currentSection">
+              <enum>QDateTimeEdit::MonthSection</enum>
+             </property>
+             <property name="displayFormat">
+              <string>yyyy-MM</string>
+             </property>
+             <property name="currentSectionIndex">
+              <number>1</number>
+             </property>
+             <property name="date">
+              <date>
+               <year>2020</year>
+               <month>1</month>
+               <day>1</day>
+              </date>
+             </property>
+            </widget>
+           </item>
+           <item row="5" column="0">
+            <widget class="QLabel" name="label_gen_exc_3">
+             <property name="text">
+              <string>품번</string>
+             </property>
+            </widget>
+           </item>
+           <item row="12" column="2">
+            <widget class="QLCDNumber" name="lcdNumber"/>
+           </item>
+          </layout>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="tab_3">
+       <attribute name="title">
+        <string>E-Mail Settings</string>
+       </attribute>
+       <layout class="QGridLayout" name="gridLayout_7">
+        <item row="0" column="1">
+         <widget class="QGroupBox" name="mail_option">
+          <property name="title">
+           <string>메일 설정</string>
+          </property>
+          <layout class="QFormLayout" name="formLayout">
+           <item row="1" column="0">
+            <widget class="QLabel" name="label_to">
+             <property name="text">
+              <string>To</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="1">
+            <widget class="QLineEdit" name="lineEdit_to">
+             <property name="enabled">
+              <bool>false</bool>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="0">
+            <widget class="QLabel" name="label_cc">
+             <property name="text">
+              <string>Cc</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="1">
+            <widget class="QLineEdit" name="lineEdit_cc">
+             <property name="enabled">
+              <bool>false</bool>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="0">
+            <widget class="QCheckBox" name="mail_disable">
+             <property name="text">
+              <string>메일 송부 비활성화</string>
+             </property>
+             <property name="checked">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="0" colspan="2">
+            <spacer name="verticalSpacer_2">
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>40</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item row="1" column="1">
+         <spacer name="verticalSpacer">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>40</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+    </item>
+    <item row="0" column="1">
+     <spacer name="horizontalSpacer_2">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>40</width>
+        <height>20</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

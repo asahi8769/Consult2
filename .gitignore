@@ -1,0 +1,12 @@
+.idea
+__pycache__
+old
+venv
+dist
+build
+GUI_deprecated
+*.db
+*.exe
+*.xlsx
+!SALES.xlsx
+data.zip

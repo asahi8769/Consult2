@@ -19,14 +19,13 @@ class GitCommandLines():
         # subprocess_cmd (f'git rm -r --cached __pycache__/')
         subprocess_cmd (f'git commit -m "Add all my files"')
         subprocess_cmd (f'git remote add origin {self.repository}')
-        # subprocess_cmd (f'git push --force origin master')
-        # subprocess_cmd(f'git remote remove origin')
+        subprocess_cmd (f'git push --force origin master')
+        subprocess_cmd(f'git remote remove origin')
 
     def clone_rep(self):
         rel_dir = os.path.relpath(old_ver_directory(), os.getcwd())
         subprocess_cmd(f'git clone {self.repository[:-4]} {rel_dir}')
-        print(os.listdir(rel_dir))
-        # shutil.rmtree(os.path.join(abs_dir, '.git'))  # deleting .git folder to save space
+        # shutil.rmtree(os.path.join(rel_dir, '.git'))  # deleting .git folder to save space
 
     def history(self):
         subprocess_cmd(f'git log ')

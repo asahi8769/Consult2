@@ -1,5 +1,6 @@
 from utils.functions import subprocess_cmd, old_ver_directory
-import os
+import os, shutil
+
 
 
 class GitCommandLines():
@@ -22,8 +23,10 @@ class GitCommandLines():
         subprocess_cmd(f'git remote remove origin')
 
     def clone_rep(self):
-        dir = os.path.relpath(old_ver_directory(), os.getcwd())
-        subprocess_cmd(f'git clone {self.repository[:-4]} {dir}')
+        abs_dir = old_ver_directory()
+        rel_dir = os.path.relpath(abs_dir, os.getcwd())
+        subprocess_cmd(f'git clone {self.repository[:-4]} {rel_dir}')
+        # shutil.rmtree(os.path.join(abs_dir, '.git'))  # deleting .git folder to save space
 
     def history(self):
         subprocess_cmd(f'git log ')

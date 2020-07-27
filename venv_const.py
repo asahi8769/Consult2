@@ -1,6 +1,8 @@
 from utils.functions import subprocess_cmd
+import os
 
-dir_venv_64 = r'D:\devs\consult2\venv\Scripts'
+dir_venv_64 = os.path.join(os.getcwd(), 'venv', 'Scripts')
+
 
 def install(lib):
     return f'pip --trusted-host pypi.python.org --trusted-host files.pythonhosted.org --trusted-host pypi.org install {lib}'

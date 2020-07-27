@@ -57,3 +57,13 @@ def packaging(filename, *bindings):
             break
         else:
             print('파일이 존재하지 않습니다.')
+
+
+def make_pulled_dir():
+    try:
+        os.mkdir(os.path.join(os.getcwd(), 'pulled'))
+    except Exception as e:
+        pass
+    dir = os.path.join(os.getcwd(), 'pulled', f'pulled_{datetime.now().strftime("%Y%m%d_%H%M%S")}')
+    os.mkdir(dir)
+    return dir

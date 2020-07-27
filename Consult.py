@@ -46,7 +46,7 @@ class ConsultInformation:
             no = 1
             df_month = self.df[self.df['사정년월'] == month]
             for plant_name in ['HMMA', 'KMMG', 'KMS', 'HMMC', 'HMMR', 'HMB', 'KMM', 'HAOS', 'HMI', 'KMI', 'CHMC',
-                               'YOUNGSAN']:
+                               'YOUNGSAN', 'DWI']:
                 if len(df_month[(df_month['고객사'] == plant_name)]) == 0:
                     pass
                 else:

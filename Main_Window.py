@@ -68,9 +68,9 @@ class MyMainWindow(QtWidgets.QMainWindow, Ui_Consult2):
                 df['캠페인'] = np.where(filter_1, 'C', 'W')
                 df = df[df['캠페인'] != 'C']
             if str(self.comboBox_int_spe.currentText()) == '통분':
-                df = df[df['분담율검증'] != 'Integrated BR']
+                df = df[df['분담율검증'] == 'Integrated BR']
             elif str(self.comboBox_int_spe.currentText()) == '개별':
-                df = df[df['분담율검증'] != 'Special BR']
+                df = df[df['분담율검증'] == 'Special BR']
             if len(df) > 100000:
                 self.statusbar.showMessage(f"100,000건을 초과할 수 없습니다. ({len(df)}건)")
             else:

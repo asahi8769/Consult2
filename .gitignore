@@ -4,6 +4,7 @@ old
 venv
 dist
 build
+pulled
 GUI_deprecated
 *.db
 *.exe

@@ -27,8 +27,8 @@ class RRateInformation:
         self.pre_processing()
         for month in self.months:
             df_month = self.df[self.df['사정년월'] == month]
-            for plant_name in ['HMMA', 'KMMG', 'HAOS', 'KMS', 'HMMC', 'HMMR', 'HMB', 'CHMC', 'KMM', 'HMI', 'KMI',
-                               'YOUNGSAN', 'DWI']:
+            for plant_name in ['HMMA', 'KMMG', 'HAOS', 'DWI', 'KMS', 'HMMC', 'HMMR', 'HMB', 'CHMC', 'KMM', 'HMI', 'KMI',
+                               'YOUNGSAN']:
                 if len(df_month[df_month['고객사'] == plant_name]) == 0:
                     pass
                 else:

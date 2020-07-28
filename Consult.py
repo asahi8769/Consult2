@@ -28,7 +28,7 @@ class ConsultInformation:
             return ''
 
     def pre_processing(self):
-        self.df = self.df[~(self.df['클레임상태'].isin(['B1', 'B2', 'E2']))]
+        self.df = self.df[(self.df['클레임상태'].isin(['B1', 'B2', 'E2']))]
         self.df['CW'] = [i[-2] for i in self.df['통보서']]
         self.df['CW_'] = [i[-1:] for i in self.df['V List No']]
         self.df['비고'] = self.df.apply(self.remark, axis=1)
@@ -45,8 +45,8 @@ class ConsultInformation:
         for month in self.months:
             no = 1
             df_month = self.df[self.df['사정년월'] == month]
-            for plant_name in ['HMMA', 'KMMG', 'KMS', 'HMMC', 'HMMR', 'HMB', 'KMM', 'HAOS', 'HMI', 'KMI', 'CHMC',
-                               'YOUNGSAN', 'DWI']:
+            for plant_name in ['HMMA', 'KMMG', 'KMS', 'HMMC', 'HMMR', 'HMB', 'KMM', 'HAOS', 'DWI', 'HMI', 'KMI', 'CHMC',
+                               'YOUNGSAN']:
                 if len(df_month[(df_month['고객사'] == plant_name)]) == 0:
                     pass
                 else:

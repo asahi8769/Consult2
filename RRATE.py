@@ -42,7 +42,7 @@ class RRateInformation:
                     diff = collection - payment
                     reimb_rate = round((collection / payment) * 100, 2)
                     collection_portion = round((collection / df_month['변제합계'].sum()) * 100, 2)
-                    c_number = len(df_month[(df_month['고객사'] == plant_name) & (df_month['보상합계'] != 0)])
+                    c_number = len(df_month[(df_month['고객사'] == plant_name) & (df_month['통보서'].str.slice(0:6))])
                     v_number = len(df_month[(df_month['고객사'] == plant_name) & (df_month['변제합계'] != 0)])
                     campaign_amount = df_month[(df_month['CW'] == 'C') & (
                             df_month['고객사'] == plant_name)]['변제합계'].sum()

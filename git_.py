@@ -5,7 +5,7 @@ import os
 
 class GitCommandLines():
     def __init__(self):
-        self.repository = r'https://github.com/asahi8769/Partaudit.git'
+        self.repository = r'https://github.com/asahi8769/Consult2.git'
         self.abs_dir = None
         self.rel_dir = None
         subprocess_cmd (f'git config --global user.name Ilhee Lee')

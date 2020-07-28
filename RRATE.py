@@ -1,4 +1,6 @@
 import pandas as pd
+from dateutil import relativedelta
+from datetime import datetime
 import warnings
 import gc
 import os
@@ -10,8 +12,8 @@ warnings.filterwarnings('ignore')
 
 class RRateInformation:
     def __init__(self, df):
-        self.df = df[['고객사', '사정년월', '통보서', 'V List No', '원인부품번호', '업체코드', '업체명', '보상합계', 'V 분담율',
-                       'V 통화', 'V적용환율', '변제합계', '보상합계_기준', '변제합계_기준']]
+        self.df = df[['고객사', '사정년월', '통보서', '클레임상태', 'V List No', '원인부품번호', '업체코드', '업체명', '보상합계',
+                      'V 분담율', 'V 통화', 'V적용환율', '변제합계', '보상합계_기준', '변제합계_기준']]
         self.months = None
         self.df_reimb = None
         self.db_address = os.path.join('Main_DB', 'Main_DB.db')
@@ -42,8 +44,10 @@ class RRateInformation:
                     diff = collection - payment
                     reimb_rate = round((collection / payment) * 100, 2)
                     collection_portion = round((collection / df_month['변제합계'].sum()) * 100, 2)
-                    c_number = len(df_month[(df_month['고객사'] == plant_name) & (df_month['통보서'].str.slice(0:6))])
-                    v_number = len(df_month[(df_month['고객사'] == plant_name) & (df_month['변제합계'] != 0)])
+                    month_issued = datetime.strptime(str(month), '%Y%m') + relativedelta.relativedelta(months=-2)
+                    c_number = len(df_month[(df_month['고객사'] == plant_name) &
+                                            (df_month['통보서'].str.slice(0, 6, 1) == month_issued.strftime('%Y%m'))])
+                    v_number = len(df_month[(df_month['고객사'] == plant_name) & (df_month['클레임상태'].isin(['B1', 'B2', 'E2']))])
                     campaign_amount = df_month[(df_month['CW'] == 'C') & (
                             df_month['고객사'] == plant_name)]['변제합계'].sum()
                     campaign_portion = round(
@@ -154,8 +158,8 @@ if __name__ == '__main__':
     df1 = RRateInformation(
         SearchDB(customer=None, start_m=201901, end_m=201903,
                  ro_no=None, part_no=None, ven_code=None).search()).convert()
-    # with pd.ExcelWriter('Spawn/test2.xlsx') as writer:
-    #     df1.to_excel(writer, sheet_name='Sheet_name_3', index=False)
-
-    with pd.ExcelWriter('Spawn/test2.xlsx', mode='a') as writer:
+    with pd.ExcelWriter('Spawn/test2.xlsx') as writer:
         df1.to_excel(writer, sheet_name='Sheet_name_3', index=False)
+
+    # with pd.ExcelWriter('Spawn/test2.xlsx', mode='a') as writer:
+    #     df1.to_excel(writer, sheet_name='Sheet_name_3', index=False)

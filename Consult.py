@@ -10,8 +10,8 @@ warnings.filterwarnings('ignore')
 
 class ConsultInformation:
     def __init__(self, df):
-        self.df = df[['고객사', '사정년월', '통보서', 'V List No', '원인부품번호', '업체코드', '업체명', '보상합계', 'V 분담율',
-                       'V 통화', '변제합계', '보상합계_기준', '변제합계_기준']]
+        self.df = df[['고객사', '사정년월', '통보서', '클레임상태', 'V List No', '원인부품번호', '업체코드', '업체명', '보상합계',
+                      'V 분담율', 'V 통화', '변제합계', '보상합계_기준', '변제합계_기준']]
         self.months = None
         self.df_converted = None
         self.db_address = os.path.join('Main_DB', 'Main_DB.db')
@@ -28,7 +28,7 @@ class ConsultInformation:
             return ''
 
     def pre_processing(self):
-        self.df = self.df[(self.df['변제합계'] != 0)]
+        self.df = self.df[~(self.df['클레임상태'].isin(['B1', 'B2', 'E2']))]
         self.df['CW'] = [i[-2] for i in self.df['통보서']]
         self.df['CW_'] = [i[-1:] for i in self.df['V List No']]
         self.df['비고'] = self.df.apply(self.remark, axis=1)

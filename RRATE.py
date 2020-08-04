@@ -27,24 +27,43 @@ class RRateInformation:
         self.pre_processing()
         for month in self.months:
             df_month = self.df[self.df['사정년월'] == month]
+            month_issued = datetime.strptime(str(month), '%Y%m') + relativedelta.relativedelta(months=-2)
+
             for plant_name in ['HMMA', 'KMMG', 'HAOS', 'DWI', 'KMS', 'HMMC', 'HMMR', 'HMB', 'CHMC', 'KMM', 'HMI', 'KMI',
                                'YOUNGSAN']:
                 if len(df_month[df_month['고객사'] == plant_name]) == 0:
                     pass
                 else:
-                    exc_rate = df_month[(df_month['고객사'] == plant_name) & (df_month['보상합계'] != 0)&(df_month['V적용환율'] != 0)]['V적용환율'].iloc[0]
-                    exc_rate = float(str(exc_rate).replace(',',''))
-                    condition = (df_month['통보서'].str.contains('WF', regex=True, na=False)) & (df_month['V 통화'] == 'KRW')
-                    df_month['변제합계_기준'] = np.where(condition, round(df_month['변제합계_기준'] / exc_rate, 2),
-                                                   df_month['변제합계_기준'])  # np.where(condition, if True, if False)
+                    exc_rate = df_month[(df_month['고객사'] == plant_name) &
+                                        (df_month['클레임상태'].isin(['B1'])) &
+                                        (df_month['통보서'].str.slice(7, 9, 1) != 'WF') &
+                                        (df_month['통보서'].str.slice(0, 6, 1) == month_issued.strftime('%Y%m'))]['V적용환율'].iloc[0]
+                    exc_rate = float(exc_rate.replace(',', ''))
+
+                    def collection_exchange(df_month, plant_name, exc_rate):
+                        issue_list = df_month['통보서'].tolist()
+                        currency_list = df_month['V 통화'].tolist()
+                        collection_list = df_month['변제합계_기준'].tolist()
+                        customer_list = df_month['고객사'].tolist()
+                        for n, item in enumerate(collection_list):
+                            if str(customer_list[n] == plant_name and issue_list[n]).endswith('0WF') and currency_list[n] == 'KRW' :
+                                collection_list[n] = collection_list[n] / exc_rate
+                            else :
+                                pass
+                        df_month['변제합계_기준'] = collection_list
+                        return df_month
+
+                    df_month = collection_exchange(df_month, plant_name, exc_rate)
                     invoice = round(df_month[df_month['고객사'] == plant_name]['보상합계_기준'].sum(), 2)
                     reimbursement = round(df_month[df_month['고객사'] == plant_name]['변제합계_기준'].sum(), 2)
+
+                    print(exc_rate,  plant_name, reimbursement)
+
                     payment = df_month[df_month['고객사'] == plant_name]['보상합계'].sum()
                     collection = df_month[df_month['고객사'] == plant_name]['변제합계'].sum()
                     diff = collection - payment
                     reimb_rate = round((collection / payment) * 100, 2)
                     collection_portion = round((collection / df_month['변제합계'].sum()) * 100, 2)
-                    month_issued = datetime.strptime(str(month), '%Y%m') + relativedelta.relativedelta(months=-2)
                     c_number = len(df_month[(df_month['고객사'] == plant_name) &
                                             (df_month['통보서'].str.slice(0, 6, 1) == month_issued.strftime('%Y%m'))])
                     v_number = len(df_month[(df_month['고객사'] == plant_name) & (df_month['클레임상태'].isin(['B1', 'B2', 'E2']))])
@@ -60,7 +79,9 @@ class RRateInformation:
                         df_month[(df_month['CW'] == 'C') & (df_month['고객사'] == plant_name)]['원인부품번호'].
                             str.slice(0, 6))]
                     self.campaign_list = self.campaign_list + campaign_customer
+
                     reimb_exc = int(exc_rate * reimbursement)
+
                     exc_diff = int(collection - reimb_exc)
                     adj_diff = int(reimb_exc - payment)
 
@@ -156,7 +177,7 @@ class RRateInformation:
 if __name__ == '__main__':
     from Search_DB import SearchDB
     df1 = RRateInformation(
-        SearchDB(customer=None, start_m=201901, end_m=201903,
+        SearchDB(customer=None, start_m=202008, end_m=202008,
                  ro_no=None, part_no=None, ven_code=None).search()).convert()
     with pd.ExcelWriter('Spawn/test2.xlsx') as writer:
         df1.to_excel(writer, sheet_name='Sheet_name_3', index=False)

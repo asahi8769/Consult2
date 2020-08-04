@@ -38,7 +38,7 @@ class RRateInformation:
                                         (df_month['클레임상태'].isin(['B1'])) &
                                         (df_month['통보서'].str.slice(7, 9, 1) != 'WF') &
                                         (df_month['통보서'].str.slice(0, 6, 1) == month_issued.strftime('%Y%m'))]['V적용환율'].iloc[0]
-                    exc_rate = float(exc_rate.replace(',', ''))
+                    exc_rate = float(str(exc_rate).replace(',', ''))
 
                     def collection_exchange(df_month, plant_name, exc_rate):
                         issue_list = df_month['통보서'].tolist()

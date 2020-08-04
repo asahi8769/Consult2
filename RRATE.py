@@ -57,7 +57,7 @@ class RRateInformation:
                     invoice = round(df_month[df_month['고객사'] == plant_name]['보상합계_기준'].sum(), 2)
                     reimbursement = round(df_month[df_month['고객사'] == plant_name]['변제합계_기준'].sum(), 2)
 
-                    print(exc_rate,  plant_name, reimbursement)
+                    # print(exc_rate,  plant_name, reimbursement)
 
                     payment = df_month[df_month['고객사'] == plant_name]['보상합계'].sum()
                     collection = df_month[df_month['고객사'] == plant_name]['변제합계'].sum()

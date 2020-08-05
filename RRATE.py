@@ -47,7 +47,7 @@ class RRateInformation:
                         customer_list = df_month['고객사'].tolist()
                         for n, item in enumerate(collection_list):
                             if str(customer_list[n] == plant_name and issue_list[n]).endswith('0WF') and currency_list[n] == 'KRW' :
-                                collection_list[n] = collection_list[n] / exc_rate
+                                collection_list[n] = round(collection_list[n] / exc_rate,2)
                             else :
                                 pass
                         df_month['변제합계_기준'] = collection_list

@@ -1,10 +1,11 @@
 from pulp import LpMinimize, LpProblem, LpStatus, lpSum, LpVariable
 from Int_BR import IntBR
 
+
 class IntBROptimizer:
     """
     Memo :
-    20/08/27 Integrated BR Optimization problem
+    20.08.27 Integrated BR Optimization problem
 
     x = Integrated BR to be calculated. (variable)
     a = 100% amount to which Integrated BR is to be applied. (constance)
@@ -59,13 +60,24 @@ class DataConstants:
             df = df[df['일반/교류'] == 'Exchange']
         else :
             raise ValueError ('possible exe arguments : all, reg, exc')
-        self.a = df[df['분담율검증'] == 'Integrated BR']['변제대상 합계'].sum()
+        self.a = df[(df['분담율검증'] == 'Integrated BR') & (df['보상합계_기준'] != 0)]['변제대상 합계'].sum()
         self.b = df[df['분담율검증'] == 'Special BR']['보상합계_기준'].sum()
         self.A = df['변제합계_기준'].sum()
 
 
 if __name__ == "__main__":
-    Constants = DataConstants('haos', 201811, 202004, exc='reg')
+    plant = input('고객사 입력 : ')
+    start_m = input('시작월 : ')
+    end_m = input('종료월 : ')
+    exc= input('교류클레임 선택 (1 : 전체, 2 : 일반, 3 : 교류, 기본값 : 전체)')
+    if exc == '2':
+        exc = 'reg'
+    elif exc == '3':
+        exc = 'exc'
+    else:
+        exc = 'all'
+
+    Constants = DataConstants(plant, start_m, end_m, exc=exc)
     print(Constants.a, Constants.b, Constants.A)
 
     opt = IntBROptimizer(Constants.a, Constants.b, Constants.A)

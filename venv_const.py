@@ -8,13 +8,16 @@ def install(lib):
     return f'pip --trusted-host pypi.python.org --trusted-host files.pythonhosted.org --trusted-host pypi.org install {lib}'
 
 
-subprocess_cmd(f'cd {dir_venv_64} & '
-               # f'{install("tqdm")} & '
-               # f'{install("openpyxl")} & '
-               # f'{install("matplotlib")} & '
-               # f'{install("pyinstaller")} & '
-               # f'{install("xlrd")} & '
-               # f'{install("pandas")} & '
-               # f'{install("pyautogui")}'
-               f'{install("pulp")} & '
-               )
+# subprocess_cmd(f'cd {dir_venv_64} & '
+#                # f'{install("tqdm")} & '
+#                # f'{install("openpyxl")} & '
+#                # f'{install("matplotlib")} & '
+#                # f'{install("pyinstaller")} & '
+#                # f'{install("xlrd")} & '
+#                # f'{install("pandas")} & '
+#                # f'{install("pyautogui")}'
+#                f'{install("pulp")} & '
+#                )
+
+subprocess_cmd(f'cd {dir_venv_64} & {install("pulp")} & {install("scipy")}')
+

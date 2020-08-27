@@ -1,6 +1,6 @@
 from pulp import LpMinimize, LpProblem, LpStatus, lpSum, LpVariable
 from Int_BR import IntBR
-
+# from pulp import GLPK
 
 class IntBROptimizer:
     """
@@ -42,7 +42,7 @@ class IntBROptimizer:
     def optimize(self):
         status = self.model.solve()
         self.target = round(self.model.variables()[0].value(), 4)
-        print(f"Status: {status}")
+        print(f"Status: {status}, {LpStatus[self.model.status]}")
         print(f"Objective: {round(self.model.objective.value(),4)}")
         print(f"Target Value: {self.target}")
 
@@ -69,7 +69,7 @@ if __name__ == "__main__":
     plant = input('고객사 입력 : ')
     start_m = input('시작월 : ')
     end_m = input('종료월 : ')
-    exc= input('교류클레임 선택 (1 : 전체, 2 : 일반, 3 : 교류, 기본값 : 전체)')
+    exc= input('교류클레임 선택 (1 : 전체, 2 : 일반, 3 : 교류, 기본값 : 전체) : ')
     if exc == '2':
         exc = 'reg'
     elif exc == '3':

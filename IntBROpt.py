@@ -65,7 +65,7 @@ class DataConstants:
 
 
 if __name__ == "__main__":
-    Constants = DataConstants('HMMA', 201811, 202004, exc='reg')
+    Constants = DataConstants('haos', 201811, 202004, exc='reg')
     print(Constants.a, Constants.b, Constants.A)
 
     opt = IntBROptimizer(Constants.a, Constants.b, Constants.A)

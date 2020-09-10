@@ -21,7 +21,7 @@ class SimpleIntBRSolver:
         self.answer = {}
         for i in ('Regular', 'Exchange'):
             df_ = df[df['일반/교류'] == i]
-            if len(df) == 0:
+            if len(df_) == 0:
                 break
             self.a = df_[(df_['분담율검증'] == 'Integrated BR') & (df_['보상합계_기준'] != 0)]['변제대상 합계'].sum()
             self.b = df_[df_['분담율검증'] == 'Special BR']['보상합계_기준'].sum()

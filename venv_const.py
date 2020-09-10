@@ -10,12 +10,12 @@ def install(lib):
 
 if __name__ == "__main__":
     subprocess_cmd(
-        f'cd {dir_venv_64} & '
-        f'{install("tqdm")} & '
-        f'{install("openpyxl")} & '
-        f'{install("matplotlib")} & '
-        f'{install("pyinstaller")} & '
-        f'{install("xlrd")} & '
-        f'{install("pandas")} & '
-        f'{install("PyQt5")}'
+        # f'cd {dir_venv_64} & '
+        # f'{install("tqdm")} & '
+        # f'{install("openpyxl")} & '
+        f'{install("matplotlib==3.0.3 --force-reinstall")} & '
+        # f'{install("pyinstaller")} & '
+        # f'{install("xlrd")} & '
+        # f'{install("pandas")} & '
+        # f'{install("PyQt5")}'
     )

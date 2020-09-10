@@ -1,8 +1,5 @@
 from PyQt5 import QtCore, QtWidgets
 from PyQt5.QtGui import QPixmap
-import numpy as np
-import sys
-import os
 from Ui_template import Ui_Consult2
 from Consult_Main import MainExecute
 from utils.automail import AutoEmail

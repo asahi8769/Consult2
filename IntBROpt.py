@@ -2,6 +2,7 @@ from pulp import LpMinimize, LpProblem, LpStatus, lpSum, LpVariable
 from Int_BR import IntBR
 # from pulp import GLPK
 
+
 class IntBROptimizer:
     """
     Memo :
@@ -14,7 +15,7 @@ class IntBROptimizer:
     A = Actual reimbursement amount.
     z = difference between Approximation and Actual reimbursement amount.
 
-    problem : minimize z = ax + (b - A)
+    problem : minimize z = ax + b - A
     constraint(s) :
     x >= 0
     z >= 0
@@ -25,6 +26,19 @@ class IntBROptimizer:
         self.b = b_indapp
         self.A = A_reimb
         self.check_type()
+
+        """
+        
+        self.a * self.x + self.b - self.A = 0
+        self.a * self.x = self.A - self.b
+        self.x = (self.A - self.b) / self.a
+        self.answer  = round((self.A - self.b) / self.a, 4)
+        
+        """
+
+
+
+
         self.x = LpVariable(name="x", lowBound=0, upBound=1, cat='Continuous')
         self.model = LpProblem(name='Int_BR_Optimization_problem', sense=LpMinimize)
         self.z = self.a * self.x + self.b - self.A
@@ -32,7 +46,7 @@ class IntBROptimizer:
         self.model += self.z
         self.model += (self.const_1, 'constrain_1')
         self.target = None
-        print(self.model)
+        # print(self.model)
 
     def check_type(self):
         for variable in (self.a, self.b, self.A):
@@ -45,6 +59,21 @@ class IntBROptimizer:
         print(f"Status: {status}, {LpStatus[self.model.status]}")
         print(f"Objective: {round(self.model.objective.value(),4)}")
         print(f"Target Value: {self.target}")
+
+
+class SimpleIntBRSolver:
+    def __init__(self, a_int100, b_indapp, A_reimb):
+        self.a = a_int100
+        self.b = b_indapp
+        self.A = A_reimb
+        self.check_type()
+        self.answer = round((self.A - self.b) / self.a, 4)
+        print('Answer :', self.answer)
+
+    def check_type(self):
+        for variable in (self.a, self.b, self.A):
+            if type(variable) == str:
+                raise AssertionError('a_int100, b_indapp, A_reimb should be numeric.')
 
 
 class DataConstants:
@@ -78,7 +107,7 @@ if __name__ == "__main__":
         exc = 'all'
 
     Constants = DataConstants(plant, start_m, end_m, exc=exc)
-    print(Constants.a, Constants.b, Constants.A)
+    # print(Constants.a, Constants.b, Constants.A)
 
-    opt = IntBROptimizer(Constants.a, Constants.b, Constants.A)
-    opt.optimize()
+    opt = SimpleIntBRSolver(Constants.a, Constants.b, Constants.A)
+    # opt.optimize()

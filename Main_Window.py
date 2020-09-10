@@ -9,7 +9,7 @@ from utils.automail import AutoEmail
 from utils.open_zip import open_zipfile
 from Closing_plots import MakeClosingPlots
 from Append_DB import MainDB
-from Int_BR import IntBR
+from Int_BR import *
 from utils.export import export
 
 
@@ -162,9 +162,10 @@ class MyMainWindow(QtWidgets.QMainWindow, Ui_Consult2):
                 2 - len(str(self.end_m_2.date().month()))) + str(self.end_m_2.date().month()))
         try :
             self.obj = IntBR(self.plant, self.start, self.end)
+            optimal = SimpleIntBRSolver(self.obj.df).answer
             self.attachment = self.obj.calculate()
             print(self.attachment)
-            self.statusbar.showMessage(f'통합분담율 계산결과 ({self.obj.new_cbr})')
+            self.statusbar.showMessage(f'통합분담율 계산결과 ({self.obj.new_cbr}), 최적값 ({optimal})')
         except Exception as e :
             print(e)
             self.statusbar.showMessage(f'{self.start} ~ {self.end} 데이터에 문제가 있습니다. ({e})')

@@ -13,6 +13,23 @@ from utils.export import export
 
 warnings.filterwarnings('ignore')
 
+
+class SimpleIntBRSolver:
+    def __init__(self, df):
+        df = df.copy()
+        df = df[df['WFR'] != 'F']
+        self.answer = {}
+        for i in ('Regular', 'Exchange'):
+            df_ = df[df['일반/교류'] == i]
+            if len(df) == 0:
+                break
+            self.a = df_[(df_['분담율검증'] == 'Integrated BR') & (df_['보상합계_기준'] != 0)]['변제대상 합계'].sum()
+            self.b = df_[df_['분담율검증'] == 'Special BR']['보상합계_기준'].sum()
+            self.A = df_['변제합계_기준'].sum()
+            self.answer[i] = round((self.A - self.b) / self.a, 4)
+        print(self.answer)
+
+
 class IntBR:
     consult_mul_col = ['고객사', '사정년월', '통보서', '`V List No`', '`RO-NO`', '`OP-CODE`', '클레임상태', '원인부품번호', '원인부품명',
                        '업체코드', '업체명', '차종모델코드', '`C 분담율`', '보상합계', '보상합계_기준', '`변제대상 합계`',

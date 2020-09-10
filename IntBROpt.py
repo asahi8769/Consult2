@@ -28,16 +28,14 @@ class IntBROptimizer:
         self.check_type()
 
         """
-        
+        This less overkill
+         
         self.a * self.x + self.b - self.A = 0
         self.a * self.x = self.A - self.b
         self.x = (self.A - self.b) / self.a
         self.answer  = round((self.A - self.b) / self.a, 4)
         
         """
-
-
-
 
         self.x = LpVariable(name="x", lowBound=0, upBound=1, cat='Continuous')
         self.model = LpProblem(name='Int_BR_Optimization_problem', sense=LpMinimize)
@@ -59,22 +57,6 @@ class IntBROptimizer:
         print(f"Status: {status}, {LpStatus[self.model.status]}")
         print(f"Objective: {round(self.model.objective.value(),4)}")
         print(f"Target Value: {self.target}")
-
-
-class SimpleIntBRSolver:
-    def __init__(self, a_int100, b_indapp, A_reimb):
-        self.a = a_int100
-        self.b = b_indapp
-        self.A = A_reimb
-        self.check_type()
-        self.answer = round((self.A - self.b) / self.a, 4)
-        print('Answer :', self.answer)
-
-    def check_type(self):
-        for variable in (self.a, self.b, self.A):
-            if type(variable) == str:
-                raise AssertionError('a_int100, b_indapp, A_reimb should be numeric.')
-
 
 class DataConstants:
     def __init__(self, plant, start_m, end_m, exc='all'):

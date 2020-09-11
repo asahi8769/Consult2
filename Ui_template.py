@@ -298,6 +298,7 @@ class Ui_Consult2(object):
         self.statusbar = QtWidgets.QStatusBar(Consult2)
         self.statusbar.setObjectName("statusbar")
         Consult2.setStatusBar(self.statusbar)
+        self.setWindowIcon(QtGui.QIcon('glovis.png'))
 
         self.retranslateUi(Consult2)
         self.tabWidget.setCurrentIndex(0)
@@ -305,7 +306,7 @@ class Ui_Consult2(object):
 
     def retranslateUi(self, Consult2):
         _translate = QtCore.QCoreApplication.translate
-        Consult2.setWindowTitle(_translate("Consult2", "Consult2"))
+        Consult2.setWindowTitle(_translate("Consult2", "GLOVIS RECLAIM"))
         self.Consult.setTitle(_translate("Consult2", "품의정보"))
         self.consult_folderBtn.setText(_translate("Consult2", "생성폴더열기"))
         self.end_m.setDisplayFormat(_translate("Consult2", "yyyy-MM"))

@@ -1,6 +1,6 @@
 from PyQt5 import QtCore, QtWidgets
 from PyQt5.QtGui import QPixmap
-from Ui_template import Ui_Consult2
+from templates.Ui_template import Ui_Consult2
 from Consult_Main import MainExecute
 from utils.automail import AutoEmail
 from utils.open_zip import open_zipfile

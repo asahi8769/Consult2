@@ -8,7 +8,6 @@ from email.mime.multipart import MIMEMultipart
 from email.mime.application import MIMEApplication
 
 
-
 class AutoEmail:
     email_address = os.environ.get('EMAIL_USER')
     email_password = os.environ.get('EMAIL_PASS')
@@ -83,20 +82,3 @@ class AutoEmail:
             smtp.login (AutoEmail.email_address, AutoEmail.email_password)
             smtp.send_message (self.msg)
             print ('Mail sent successfully!\n')
-        # else:
-        #     print ('\nAction reserved\n')
-
-
-if __name__ == "__main__":
-    # from pathlib import Path
-    # from open_zip import open_zipfile
-    # file = os.path.join (Path (os.getcwd ()).parent, r'Spawn\test2.xlsx')
-
-    # zip_ = os.path.join (Path (os.getcwd ()).parent, 'Cookies\Pocket.zip')
-    # logo = open_zipfile (zip_, 'logo.bmp')
-    # footer = open_zipfile (zip_, 'mail_footer.png')
-
-    content = '안녕하세요.<br /><br />{} 품의/변제율 자료 송부드리오니 확인부탁드립니다.<br /><br />감사합니다.<br /><br />'. format('test')
-    mail = AutoEmail(receiver='lih@glovis.net;asahi8769@gmail.com', cc='asahi8769@gmail.com;lih1500252@naver.com',
-                     subject='test', content=content )
-    mail.send()

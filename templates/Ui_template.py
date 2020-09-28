@@ -298,7 +298,7 @@ class Ui_Consult2(object):
         self.statusbar = QtWidgets.QStatusBar(Consult2)
         self.statusbar.setObjectName("statusbar")
         Consult2.setStatusBar(self.statusbar)
-        self.setWindowIcon(QtGui.QIcon('glovis.png'))
+        self.setWindowIcon(QtGui.QIcon('Images/glovis.png'))
 
         self.retranslateUi(Consult2)
         self.tabWidget.setCurrentIndex(0)

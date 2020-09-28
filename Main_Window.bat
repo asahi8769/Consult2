@@ -1,8 +1,8 @@
 @ECHO ON
 title CONSULT2 Start
 
-cd /D D:\devs\consult2
+cd /D %~dp0\
 
-python Main_Window.py
+%~dp0\venv\Scripts\python.exe Main_Window.py
 
 cmd.exe

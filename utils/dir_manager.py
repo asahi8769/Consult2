@@ -30,7 +30,3 @@ make_dir('Spawn')
 make_dir('Objections')
 make_dir('GUI')
 make_dir('utils')
-
-
-if __name__ == "__main__":
-    make_dir('main_DB')

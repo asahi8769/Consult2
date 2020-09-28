@@ -9,6 +9,9 @@ GUI_deprecated
 *.db
 *.exe
 *.xlsx
+*.log
+
 !SALES.xlsx
 data.zip
 images/*.png
+

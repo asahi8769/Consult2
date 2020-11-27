@@ -93,6 +93,11 @@ class ClosingInfo:
             usd_amount = df_partial[df_partial['통보서'].str.contains('CC', regex=True, na=False) & (df_partial['보상합계_기준'] != 0)]['변제합계_기준'].iloc[0]
             krw_amount = df_partial[df_partial['통보서'].str.contains('CC', regex=True, na=False) & (df_partial['보상합계_기준'] != 0)]['변제합계'].iloc[0]
             return 'V환율:{}, CC적용환율:{:,.2f}'.format(exc_rate_cc, round(krw_amount/usd_amount,2))
+        elif len(df_partial[df_partial['통보서'].str.contains('CA', regex=True, na=False)]) > 0:
+            exc_rate_cc = df_partial[df_partial['통보서'].str.contains('CA', regex=True, na=False) & (df_partial['보상합계_기준'] != 0)]['V적용환율'].iloc[0]
+            usd_amount = df_partial[df_partial['통보서'].str.contains('CA', regex=True, na=False) & (df_partial['보상합계_기준'] != 0)]['변제합계_기준'].iloc[0]
+            krw_amount = df_partial[df_partial['통보서'].str.contains('CA', regex=True, na=False) & (df_partial['보상합계_기준'] != 0)]['변제합계'].iloc[0]
+            return 'V환율:{}, CC적용환율:{:,.2f}'.format(exc_rate_cc, round(krw_amount/usd_amount,2))
         else :
             return 'V환율:{}'.format(df_partial[(df_partial['V적용환율'] != 0) & (df_partial['보상합계_기준'] != 0)]['V적용환율'].iloc[0])
 

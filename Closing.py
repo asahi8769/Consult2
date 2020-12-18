@@ -88,12 +88,13 @@ class ClosingInfo:
 
     @staticmethod
     def exchange_rate(df_partial):
-        if len(df_partial[df_partial['통보서'].str.contains('CC', regex=True, na=False)]) > 0:
+        # print(df_partial)
+        if len(df_partial[df_partial['통보서'].str.contains('CC', regex=True, na=False) & (df_partial['보상합계_기준'] != 0)]) > 0:
             exc_rate_cc = df_partial[df_partial['통보서'].str.contains('CC', regex=True, na=False) & (df_partial['보상합계_기준'] != 0)]['V적용환율'].iloc[0]
             usd_amount = df_partial[df_partial['통보서'].str.contains('CC', regex=True, na=False) & (df_partial['보상합계_기준'] != 0)]['변제합계_기준'].iloc[0]
             krw_amount = df_partial[df_partial['통보서'].str.contains('CC', regex=True, na=False) & (df_partial['보상합계_기준'] != 0)]['변제합계'].iloc[0]
             return 'V환율:{}, CC적용환율:{:,.2f}'.format(exc_rate_cc, round(krw_amount/usd_amount,2))
-        elif len(df_partial[df_partial['통보서'].str.contains('CA', regex=True, na=False)]) > 0:
+        elif len(df_partial[df_partial['통보서'].str.contains('CA', regex=True, na=False)& (df_partial['보상합계_기준'] != 0)]) >0:
             exc_rate_cc = df_partial[df_partial['통보서'].str.contains('CA', regex=True, na=False) & (df_partial['보상합계_기준'] != 0)]['V적용환율'].iloc[0]
             usd_amount = df_partial[df_partial['통보서'].str.contains('CA', regex=True, na=False) & (df_partial['보상합계_기준'] != 0)]['변제합계_기준'].iloc[0]
             krw_amount = df_partial[df_partial['통보서'].str.contains('CA', regex=True, na=False) & (df_partial['보상합계_기준'] != 0)]['변제합계'].iloc[0]
@@ -105,7 +106,7 @@ class ClosingInfo:
 if __name__ == '__main__':
     from Search_DB import SearchDB
 
-    df = SearchDB(customer=None, start_m=201910, end_m=None, ro_no=None, part_no=None, ven_code=None).search()
+    df = SearchDB(customer=None, start_m=202010, end_m=None, ro_no=None, part_no=None, ven_code=None).search()
     df_4 = ClosingInfo(df).convert()
     print(len(df_4))
     #

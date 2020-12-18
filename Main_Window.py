@@ -247,7 +247,6 @@ class MyMainWindow(QtWidgets.QMainWindow, Ui_Consult2):
             try :
                 MainExecute(start_m=self.start, end_m=None).consult_sin()
             except Exception as e:
-                print(e)
                 self.statusbar.showMessage(f'{self.start} 데이터에 문제가 있습니다. ({e})')
                 return None
             self.attachment = f'{self.start}_Consult.xlsx'
